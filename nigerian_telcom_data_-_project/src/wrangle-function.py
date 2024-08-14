@@ -63,17 +63,28 @@ def clean_numeric_columns(df: pd.DataFrame) -> pd.DataFrame:
     
     return df
 
+def get_column_name(df: pd.DataFrame, possible_names: List[str]) -> str:
+    """Find the correct column name from a list of possible names."""
+    for name in possible_names:
+        if name in df.columns:
+            return name
+    raise KeyError(f"No matching column found for {possible_names}")
+
 def filter_excluded_values(df: pd.DataFrame) -> pd.DataFrame:
     """Filter out rows with excluded values."""
     columns_to_filter = [
-        "transaction_type",
-        "service_plan",
-        "internet_package",
-        "transaction_status"
+        ["transaction_type", "Transaction Type"],
+        ["service_plan", "Service Plan"],
+        ["internet_package", "Internet Package"],
+        ["transaction_status", "Transaction Status"]
     ]
     
-    for column in columns_to_filter:
-        df = df[~df[column].isin(EXCLUDED_VALUES)]
+    for column_options in columns_to_filter:
+        try:
+            column = get_column_name(df, column_options)
+            df = df[~df[column].isin(EXCLUDED_VALUES)]
+        except KeyError:
+            print(f"Warning: Could not find column {column_options}. Skipping filtering for this column.")
     
     return df
 
@@ -92,6 +103,7 @@ def wrangle(file_path: str) -> pd.DataFrame:
     
     df = df.drop_duplicates().dropna()
     
+    # Ensure all column names are in snake_case
     df.columns = df.columns.str.replace(" ", "_").str.lower()
     
     df.to_pickle("../data/processed/wrangled-file-export.pkl")
