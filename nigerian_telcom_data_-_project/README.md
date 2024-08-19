@@ -10,7 +10,7 @@
 │   ├── processed      <- The final, canonical data sets for modeling.
 │   └── raw            <- The original, immutable data dump.
 │
-├── docs               <- A default mkdocs project; see www.mkdocs.org for details
+├── docs               <- A default mkdocs project;
 │
 ├── models             <- Trained and serialized models, model predictions, or model summaries
 │
@@ -31,22 +31,12 @@
 │
 ├── setup.cfg          <- Configuration file for flake8
 │
-└── nigerian_telcom_data___project   <- Source code for use in this project.
+└── src                <- Source code for use in this project.
     │
-    ├── __init__.py             <- Makes nigerian_telcom_data___project a Python module
+    ├── make_dataset.py         <- Creates the dataset using faker
     │
-    ├── config.py               <- Store useful variables and configuration
+    ├── wrangle-function.py     <- Functions that does the data cleaning
     │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    └── plots.py                <- Code to create visualizations
 ```
 
 --------
