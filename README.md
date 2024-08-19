@@ -3,7 +3,7 @@
 **Context:**
 This dataset is a synthetic collection of transaction records from the Nigerian telecom industry, capturing a wide array of customer interactions with major telecom operators such as MTN, Airtel, Glo, and 9mobile. This dataset provides insights into the transactional behaviors of telecom customers, encompassing various types of transactions such as airtime purchases, data purchases, and bill payments. It includes over 50,000 records, reflecting real-world challenges telecom operators face, such as data inconsistencies, missing information, and varied data formats.
 
-**PS - This is a fake dataset generated using Faker. It is only meant to simulate a real-world dataset for my analytics educational purposes**
+**PS - This is a fake dataset generated using Faker. It is only meant to simulate a real-world dataset for eductaional purposes. Also due to the way the data was generated, after the cleaning was done, it shows that the dataset does not lend it self to much variability, making it not suitable for analytic purposes but excellent for data cleaning purposes**
 
 ### **Columns:**
 **Transaction ID:** A unique identifier for each transaction, though some values may be missing due to data entry errors.
